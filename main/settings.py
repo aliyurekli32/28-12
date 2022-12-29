@@ -42,9 +42,11 @@ INSTALLED_APPS = [
 
     #? my_apps
     'student_api',
+    'user',
     #?3rd. party apps
     'rest_framework',
     'django_filters',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +137,11 @@ REST_FRAMEWORK = {
     # 'PAGE_SIZE': 20,
     # 'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 30,
-    
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+    ],
     
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+

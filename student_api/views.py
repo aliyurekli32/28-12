@@ -6,6 +6,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.generics import GenericAPIView, mixins, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthenticatedOrReadOnly
 
 
 # my imports
@@ -266,6 +267,7 @@ class StudentMVS(ModelViewSet):
     
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    permission_classes = [IsAdminUser]
     pagination_class=CustomPageNumberPagination
     # pagination_class=CustomLimitOffsetPagination
     # pagination_class=CustomCursorPagination
