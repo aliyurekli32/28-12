@@ -14,6 +14,6 @@ class RegisterView(CreateAPIView):
         print(response.data)
         return response
 
-# Create your views here.
+# Create your views here..
 
 
